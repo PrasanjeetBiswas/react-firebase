@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   FacebookAuthProvider,
   TwitterAuthProvider,
+  GithubAuthProvider,
 } from "firebase/auth";
 import { app } from "../Firebase";
 import { useNavigate } from "react-router-dom";
@@ -79,6 +80,22 @@ function Login() {
       });
   };
 
+    const handleloginWithGithub = () => {
+    const provider = new GithubAuthProvider();
+    provider.setCustomParameters({
+      prompt: "select_account consent", // forces account chooser every time
+    });
+
+    signInWithPopup(auth, provider)
+      .then((res) => {
+        console.log(res);
+        navigate("/dasboard");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <div className="heading">
@@ -104,17 +121,21 @@ function Login() {
           }}
           style={{ padding: "10px" }}
         />
-        <button type="submit">Submit</button>
+        <button type="submit" style={{backgroundColor:"#353535c5",color:"#ffffff3c"}}>Submit</button>
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-          <button type="button" onClick={handleloginWithGoogle} style={{borderRadius:"50%", width:"50px", height:"50px", display:"flex",alignItems:"center",justifyContent:"center"}}>
+          <button type="button" onClick={handleloginWithGoogle} style={{borderRadius:"50%", width:"50px", height:"50px", display:"flex",alignItems:"center",justifyContent:"center",backgroundColor:"#353535c5"}}>
 <i class="fa-brands fa-google" style={{fontSize:"24px",color:"#ffffff3c"}}></i>
         </button>
-        <button type="button" onClick={handleloginWithFacebook} style={{borderRadius:"50%", width:"50px", height:"50px", display:"flex",alignItems:"center",justifyContent:"center"}}>
+        <button type="button" onClick={handleloginWithFacebook} style={{borderRadius:"50%", width:"50px", height:"50px", display:"flex",alignItems:"center",justifyContent:"center",backgroundColor:"#353535c5"}}>
           <i class="fa-brands fa-facebook-f" style={{fontSize:"24px",color:"#ffffff3c"}}></i>
         </button>
-        <button type="button" onClick={handleloginWithTwitter} style={{borderRadius:"50%", width:"50px", height:"50px", display:"flex",alignItems:"center",justifyContent:"center"}}>
+        <button type="button" onClick={handleloginWithTwitter} style={{borderRadius:"50%", width:"50px", height:"50px", display:"flex",alignItems:"center",justifyContent:"center",backgroundColor:"#353535c5"}}>
           <i class="fa-brands fa-x-twitter" style={{fontSize:"24px",color:"#ffffff3c"}}></i>
         </button>
+        <button type="button" onClick={handleloginWithGithub} style={{borderRadius:"50%", width:"50px", height:"50px", display:"flex",alignItems:"center",justifyContent:"center",backgroundColor:"#353535c5"}}>
+          <i class="fa-brands fa-github" style={{fontSize:"24px",color:"#ffffff3c"}}></i>
+        </button>
+        
         </div>
       </form>
     </>
