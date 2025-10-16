@@ -5,9 +5,11 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   FacebookAuthProvider,
+  TwitterAuthProvider,
 } from "firebase/auth";
 import { app } from "../Firebase";
 import { useNavigate } from "react-router-dom";
+
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -32,8 +34,8 @@ function Login() {
   const handleloginWithGoogle = () => {
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({
-  prompt: "select_account consent", // forces account chooser every time
-});
+      prompt: "select_account consent", // forces account chooser every time
+    });
 
     signInWithPopup(auth, provider)
       .then((res) => {
@@ -48,8 +50,24 @@ function Login() {
   const handleloginWithFacebook = () => {
     const provider = new FacebookAuthProvider();
     provider.setCustomParameters({
-  prompt: "select_account consent", // forces account chooser every time
-});
+      prompt: "select_account consent", // forces account chooser every time
+    });
+
+    signInWithPopup(auth, provider)
+      .then((res) => {
+        console.log(res);
+        navigate("/dasboard");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleloginWithTwitter = () => {
+    const provider = new TwitterAuthProvider();
+    provider.setCustomParameters({
+      prompt: "select_account consent", // forces account chooser every time
+    });
 
     signInWithPopup(auth, provider)
       .then((res) => {
@@ -87,12 +105,17 @@ function Login() {
           style={{ padding: "10px" }}
         />
         <button type="submit">Submit</button>
-        <button type="button" onClick={handleloginWithGoogle}>
-          Log-in With Google
+        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+          <button type="button" onClick={handleloginWithGoogle} style={{borderRadius:"50%", width:"50px", height:"50px", display:"flex",alignItems:"center",justifyContent:"center"}}>
+<i class="fa-brands fa-google" style={{fontSize:"24px",color:"#ffffff3c"}}></i>
         </button>
-        <button type="button" onClick={handleloginWithFacebook}>
-          Log-in With Facebook
+        <button type="button" onClick={handleloginWithFacebook} style={{borderRadius:"50%", width:"50px", height:"50px", display:"flex",alignItems:"center",justifyContent:"center"}}>
+          <i class="fa-brands fa-facebook-f" style={{fontSize:"24px",color:"#ffffff3c"}}></i>
         </button>
+        <button type="button" onClick={handleloginWithTwitter} style={{borderRadius:"50%", width:"50px", height:"50px", display:"flex",alignItems:"center",justifyContent:"center"}}>
+          <i class="fa-brands fa-x-twitter" style={{fontSize:"24px",color:"#ffffff3c"}}></i>
+        </button>
+        </div>
       </form>
     </>
   );
