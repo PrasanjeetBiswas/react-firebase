@@ -1,7 +1,7 @@
 function Dasboard(){
     return(
         <>
-        <h1>Dashboard</h1>
+        <h1 style={{color:"#ffffff"}}>Dashboard</h1>
         </>
     )
 }

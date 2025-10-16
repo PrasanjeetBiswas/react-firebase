@@ -25,7 +25,7 @@ function SignUp() {
   return (
     <>
       <div className="heading">
-        <h1>Sign Up Page.</h1>
+        <h1 style={{color:"#ffffff"}}>Sign Up Page.</h1>
       </div>
       <form
         onSubmit={handleSubmit}
@@ -37,7 +37,7 @@ function SignUp() {
           onChange={(e) => {
             setEmail(e.target.value);
           }}
-          style={{ padding: "10px",backgroundColor:"#353535c5",color:"#ffffff3c",border:"none",borderRadius:"8px"  }}
+          style={{ padding: "10px",backgroundColor:"#353535c5",border:"none",borderRadius:"8px"  }}
         />
         <input
           type="password"
@@ -45,7 +45,7 @@ function SignUp() {
           onChange={(e) => {
             setPassword(e.target.value);
           }}
-          style={{ padding: "10px",backgroundColor:"#353535c5",color:"#ffffff3c",border:"none",borderRadius:"8px"  }}
+          style={{ padding: "10px",backgroundColor:"#353535c5",border:"none",borderRadius:"8px"  }}
         />
         <button type="submit" style={{backgroundColor:"#353535c5",color:"#ffffff3c"}}>Submit</button>
       </form>

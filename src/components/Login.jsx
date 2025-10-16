@@ -99,7 +99,7 @@ function Login() {
   return (
     <>
       <div className="heading">
-        <h1>Log-in Page.</h1>
+        <h1 style={{color:"#ffffff"}}>Log-in Page.</h1>
       </div>
       <form
         onSubmit={handleSubmit}
@@ -111,7 +111,7 @@ function Login() {
           onChange={(e) => {
             setEmail(e.target.value);
           }}
-          style={{ padding: "10px",backgroundColor:"#353535c5",color:"#ffffff3c",border:"none",borderRadius:"8px" }}
+          style={{ padding: "10px",backgroundColor:"#353535c5",border:"none",borderRadius:"8px" }}
         />
         <input
           type="password"
@@ -119,7 +119,7 @@ function Login() {
           onChange={(e) => {
             setPassword(e.target.value);
           }}
-          style={{ padding: "10px",backgroundColor:"#353535c5",color:"#ffffff3c",border:"none",borderRadius:"8px" }}
+          style={{ padding: "10px",backgroundColor:"#353535c5",border:"none",borderRadius:"8px" }}
         />
         <button type="submit" style={{backgroundColor:"#353535c5",color:"#ffffff3c"}}>Submit</button>
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
