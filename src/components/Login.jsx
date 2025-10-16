@@ -111,7 +111,7 @@ function Login() {
           onChange={(e) => {
             setEmail(e.target.value);
           }}
-          style={{ padding: "10px" }}
+          style={{ padding: "10px",backgroundColor:"#353535c5",color:"#ffffff3c" }}
         />
         <input
           type="password"
@@ -119,7 +119,7 @@ function Login() {
           onChange={(e) => {
             setPassword(e.target.value);
           }}
-          style={{ padding: "10px" }}
+          style={{ padding: "10px",backgroundColor:"#353535c5",color:"#ffffff3c" }}
         />
         <button type="submit" style={{backgroundColor:"#353535c5",color:"#ffffff3c"}}>Submit</button>
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
